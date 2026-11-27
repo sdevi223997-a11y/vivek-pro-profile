@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVEK KUMAR | AI & Web Developer</title>
+    <style>
+        @import url('https://googleapis.com');
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body {
+            background-color: #050811;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 243, 255, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(188, 19, 254, 0.08), transparent 25%);
+        }
+        .grid-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 243, 255, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 243, 255, 0.04) 1px, transparent 1px);
+            z-index: -1;
+        }
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: rgba(5, 8, 17, 0.85);
+            backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            position: sticky; top: 0; z-index: 100;
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 800;
+            background: linear-gradient(90deg, #00f3ff, #bc13fe);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+        .status-badge {
+            background: rgba(0, 255, 136, 0.12); border: 1px solid #00ff88;
+            color: #00ff88; padding: 6px 14px; border-radius: 20px;
+            font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 8px;
+        }
+        .dot {
+            width: 8px; height: 8px; background: #00ff88; border-radius: 50%;
+            box-shadow: 0 0 10px #00ff88; animation: blink 1.2s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0.2; } }
+        .hero { text-align: center; padding: 70px 8% 40px; max-width: 900px; margin: auto; }
+        .avatar-ring {
+            width: 110px; height: 110px; margin: 0 auto 20px; border-radius: 50%;
+            padding: 4px; background: linear-gradient(135deg, #00f3ff, #bc13fe);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+        }
+        .avatar-inner {
+            width: 100%; height: 100%; background: #0a0f1f; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Orbitron', sans-serif; font-size: 2.2rem; font-weight: 800; color: #00f3ff;
+        }
+        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: 2.6rem; margin-bottom: 10px; }
+        .typing-box { font-size: 1.2rem; color: #00f3ff; font-weight: 600; min-height: 30px; margin-bottom: 15px; }
+        .hero p { color: #a0aec0; line-height: 1.6; margin-bottom: 25px; }
+        .cta-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn-primary {
+            background: linear-gradient(90deg, #00f3ff, #0077ff); color: #050811;
+            padding: 12px 26px; border-radius: 8px; font-weight: 700; text-decoration: none;
+        }
+        .btn-outline {
+            background: transparent; color: #ffffff; padding: 12px 26px;
+            border-radius: 8px; font-weight: 600; border: 1px solid #bc13fe; cursor: pointer;
+        }
+        .section { padding: 40px 8%; max-width: 1100px; margin: auto; }
+        .section-title {
+            font-family: 'Orbitron', sans-serif; font-size: 1.6rem;
+            margin-bottom: 25px; border-left: 4px solid #00f3ff; padding-left: 15px;
+        }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .skill-chip {
+            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(0, 243, 255, 0.2);
+            padding: 15px; border-radius: 10px; text-align: center; font-weight: 600;
+        }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .project-card {
+            background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .tag {
+            font-size: 0.72rem; font-weight: 700; color: #00f3ff;
+            background: rgba(0, 243, 255, 0.12); padding: 4px 10px; border-radius: 6px; margin-bottom: 10px; width: fit-content;
+        }
+        .project-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+        .project-card p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 18px; }
+        .live-btn {
+            display: block; text-align: center; background: rgba(0, 243, 255, 0.15);
+            color: #00f3ff; border: 1px solid #00f3ff; padding: 10px; border-radius: 8px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+        }
+        footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255, 255, 255, 0.08); color: #64748b; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <nav>
+        <div class="logo">VIVEK.AI</div>
+        <div class="status-badge"><span class="dot"></span> AVAILABLE FOR WORK</div>
+    </nav>
+
+    <section class="hero">
+        <div class="avatar-ring"><div class="avatar-inner">VK</div></div>
+        <h1>VIVEK KUMAR</h1>
+        <div class="typing-box" id="typing"></div>
+        <p>Building high-speed AI-powered web applications, bilingual Voice AI assistants, and autonomous Agentic AI workflows.</p>
+        <div class="cta-group">
+            <a href="#projects" class="btn-primary">🚀 EXPLORE LIVE PROJECTS</a>
+            <button class="btn-outline" onclick="copyProfileLink()">📋 SHARE PROFILE LINK</button>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">CORE TECH STACK</h2>
+        <div class="skills-grid">
+            <div class="skill-chip">⚡ HTML5 & CSS3</div>
+            <div class="skill-chip">🔥 JavaScript (ES6+)</div>
+            <div class="skill-chip">🐍 Python & AI Agents</div>
+            <div class="skill-chip">⚙️ C++ Logic</div>
+            <div class="skill-chip">🤖 Gemini & Speech APIs</div>
+            <div class="skill-chip">🌐 GitHub Deployment</div>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <h2 class="section-title">FEATURED LIVE DEPLOYMENTS</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div><span class="tag">AI & HEALTH</span><h3>Apex Fitness & AI Coach</h3><p>Smart BMI, daily calorie & protein calculator paired with commercial gym plans.</p></div>
+                <a href="https://github.io" target="_blank" class="live-btn">LAUNCH LIVE APP ↗</a>
+            </div>
+            <div class="project-card">
+                <div><span class="tag">VOICE INTELLIGENCE</span><h3>Vivek Smart Voice AI</h3><p>Bilingual Hindi & English voice assistant with live Wikipedia knowledge integration.</p></div>
+                <a href="https://github.io" target="_blank" class="live-btn">LAUNCH LIVE APP ↗</a>
+            </div>
+            <div class="project-card">
+                <div><span class="tag">INSTITUTIONAL PORTAL</span><h3>A.S.M Convent School</h3><p>Full-featured digital campus portal with faculty directory, labs, and admissions.</p></div>
+                <a href="https://github.io" target="_blank" class="live-btn">LAUNCH LIVE APP ↗</a>
+            </div>
+            <div class="project-card">
+                <div><span class="tag">3D WEB GAMING</span><h3>Highway Pro 3D Simulator</h3><p>High-speed 3D car & bus racing experience with realistic physics and nitro boost.</p></div>
+                <a href="https://github.io" target="_blank" class="live-btn">LAUNCH LIVE APP ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>© 2026 <strong>VIVEK KUMAR</strong> — AI & Web Developer | Built with Precision</footer>
+
+    <script>
+        const roles = ["AI & Web Developer", "Agentic AI Builder (Python)", "Interactive Frontend Creator", "Voice AI & Automation Engineer"];
+        let rIdx = 0, cIdx = 0;
+        const el = document.getElementById("typing");
+        function type() {
+            if (cIdx < roles[rIdx].length) { el.textContent += roles[rIdx].charAt(cIdx++); setTimeout(type, 80); }
+            else { setTimeout(erase, 1500); }
+        }
+        function erase() {
+            if (cIdx > 0) { el.textContent = roles[rIdx].substring(0, --cIdx); setTimeout(erase, 45); }
+            else { rIdx = (rIdx + 1) % roles.length; setTimeout(type, 300); }
+        }
+        function copyProfileLink() { navigator.clipboard.writeText(window.location.href); alert("✅ Profile Link Copied!"); }
+        type();
+    </script>
+</body>
+</html>
